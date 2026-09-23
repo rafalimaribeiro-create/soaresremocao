@@ -1,0 +1,38 @@
+name: Publicar site
+
+on:
+  push:
+    branches: [claude/magical-dirac-u1kbuf]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Uma publicação por vez; não cancela a que já está em andamento.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # enablement: true liga o GitHub Pages na primeira execução.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # Site estático na raiz do repositório: publica tudo como está.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
