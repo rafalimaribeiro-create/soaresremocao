@@ -1,4 +1,4 @@
-# Soares Advocacia — site institucional
+# Soares e Ribeiro — site institucional
 
 Site estático (HTML, CSS e JavaScript puros, sem build) de escritório de advocacia com atuação
 em **remoção de servidor público** e **inventário extrajudicial e judicial**.
@@ -32,7 +32,7 @@ Um `grep` localiza cada ocorrência:
 
 | Item | Situação | Onde |
 |---|---|---|
-| Nome do escritório | `Soares Advocacia` — confirmar com o contrato social | todas as páginas |
+| Nome do escritório | `Soares e Ribeiro` — confirmar com o contrato social | todas as páginas |
 | Sócios e OAB | preenchidos (OAB/DF 33.915 e 35.840) | seção "Sócios" e rodapé |
 | Telefones | preenchidos | páginas + `assets/js/main.js` |
 | Domínio | `soareseribeiro.adv.br` | `CNAME`, `canonical`, Open Graph, `sitemap.xml`, `robots.txt` |

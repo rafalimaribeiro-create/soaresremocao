@@ -31,18 +31,14 @@
 
 /* ---------- Reset enxuto ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  font-size: 17px;            /* base da escala: todos os rem crescem junto */
-}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--surface);
   color: var(--text);
   font-family: var(--sans);
-  font-size: 1.06rem;         /* ~18px */
-  line-height: 1.72;
+  font-size: 17px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; height: auto; display: block; }
@@ -154,8 +150,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
   box-shadow: inset 0 0 0 3px var(--surface), inset 0 0 0 4px rgba(138, 111, 69, .32);
   display: flex; align-items: center; justify-content: center;
   padding-bottom: 8px;
-  font-family: var(--serif); font-size: 1.5rem; font-weight: 600;
-  color: var(--ink); letter-spacing: .04em; line-height: 1;
+  font-family: var(--serif); font-size: 1.16rem; font-weight: 600;
+  color: var(--ink); letter-spacing: .06em; line-height: 1;
 }
 /* fio sob a inicial, fechando o selo */
 .brand__mark::after {
@@ -163,15 +159,15 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
   width: 18px; height: 1px; margin-left: -9px; background: var(--bronze);
 }
 .brand__name {
-  font-family: var(--serif); font-size: 1.22rem; color: var(--ink);
-  line-height: 1.15; display: block; font-weight: 600;
+  font-family: var(--serif); font-size: 1.62rem; color: var(--ink);
+  line-height: 1.12; display: block; font-weight: 600;
 }
 .brand__sub {
-  display: block; font-family: var(--sans); font-size: .67rem;
-  letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted);
-  margin-top: .2rem; white-space: nowrap;
+  display: block; font-family: var(--sans); font-size: .72rem;
+  letter-spacing: .15em; text-transform: uppercase; color: var(--text-muted);
+  margin-top: .25rem; white-space: nowrap;
 }
-.nav { display: flex; align-items: center; gap: 1.3rem; }
+.nav { display: flex; align-items: center; gap: 1.55rem; }
 .nav a {
   font-size: .9rem; color: var(--graphite); text-decoration: none;
   padding: .3rem 0; border-bottom: 1px solid transparent;
@@ -510,7 +506,7 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 }
 
 @media (max-width: 560px) {
-  body { font-size: 1rem; }
+  body { font-size: 16px; }
   .step { grid-template-columns: 1fr; gap: .5rem; padding: 1.5rem 1.4rem; }
   .form-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
