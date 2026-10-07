@@ -10,9 +10,10 @@
      --------------------------------------------------------- */
   var CONFIG = {
     // E-mail que recebe as mensagens do formulário.
-    email: 'contato@soaresadvocacia.com.br',
+    // Vazio enquanto o domínio .adv.br não existe: o envio sai pelo WhatsApp.
+    email: '',
     // WhatsApp em formato internacional, apenas dígitos (55 + DDD + número).
-    whatsapp: '550000000000',
+    whatsapp: '5561981788292',
     // Opcional: URL de um serviço de formulários (Formspree, Basin, Netlify…).
     // Deixando vazio, o envio abre o cliente de e-mail do visitante.
     endpoint: ''
@@ -200,7 +201,7 @@
         defineStatus('Mensagem recebida. O escritório retorna em até dois dias úteis.', 'ok');
       })
       .catch(function () {
-        defineStatus('Não foi possível enviar agora. Tente novamente ou escreva para ' + CONFIG.email + '.', 'err');
+        defineStatus('Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.', 'err');
       })
       .then(function () {
         if (botao) { botao.disabled = false; botao.textContent = rotuloOriginal; }
@@ -212,7 +213,8 @@
     if (!valida()) return;
     var d = dados();
     if (CONFIG.endpoint) enviaParaEndpoint(d, form.querySelector('button[type="submit"]'));
-    else enviaPorEmail(d);
+    else if (CONFIG.email) enviaPorEmail(d);
+    else enviaPorWhatsapp(d);
   });
 
   var botaoWhats = form.querySelector('[data-send="whatsapp"]');

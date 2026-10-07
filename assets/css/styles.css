@@ -513,3 +513,23 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
   .hero, .page-head, .section--ink { background: #fff !important; color: #000 !important; }
   .hero h1, .page-head h1 { color: #000 !important; }
 }
+
+/* ---------- Sócios ---------- */
+.socios {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
+  margin: 2.2rem 0 0;
+}
+.socio {
+  background: var(--surface); border: 1px solid var(--line);
+  border-top: 2px solid var(--bronze);
+  border-radius: var(--radius); padding: 1.5rem 1.6rem;
+}
+.socio h3 { font-size: 1.05rem; margin-bottom: .35rem; }
+.socio__oab {
+  font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text-muted); margin: 0 0 .6rem;
+}
+.socio__tel { margin: 0; font-size: .95rem; }
+.socio__tel a { text-decoration: none; color: var(--ink); }
+.socio__tel a:hover { color: var(--bronze-dk); }
+@media (max-width: 640px) { .socios { grid-template-columns: 1fr; } }
