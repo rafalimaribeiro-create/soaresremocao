@@ -23,7 +23,7 @@
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 
   /* Métricas */
-  --wrap: 1140px;
+  --wrap: 1200px;
   --radius: 3px;
   --shadow: 0 1px 2px rgba(15, 27, 38, .06), 0 8px 24px rgba(15, 27, 38, .05);
   --transition: 180ms ease;
@@ -31,14 +31,18 @@
 
 /* ---------- Reset enxuto ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 17px;            /* base da escala: todos os rem crescem junto */
+}
 body {
   margin: 0;
   background: var(--surface);
   color: var(--text);
   font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 1.06rem;         /* ~18px */
+  line-height: 1.72;
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; height: auto; display: block; }
@@ -64,7 +68,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 
 /* Alvos de âncora não podem parar sob o cabeçalho fixo. */
 [id] { scroll-margin-top: 96px; }
-@media (max-width: 800px) { [id] { scroll-margin-top: 1.5rem; } }
+@media (max-width: 1040px) { [id] { scroll-margin-top: 1.5rem; } }
 
 :focus-visible {
   outline: 2px solid var(--bronze);
@@ -143,28 +147,38 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 }
 .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; }
 .brand__mark {
-  width: 38px; height: 38px; flex: none;
+  position: relative;
+  width: 48px; height: 48px; flex: none;
   border: 1px solid var(--bronze);
-  display: grid; place-items: center;
-  font-family: var(--serif); font-size: 1.05rem; color: var(--bronze-dk);
-  letter-spacing: .02em;
+  /* anel interno: dá o aspecto de selo, em vez de uma caixa simples */
+  box-shadow: inset 0 0 0 3px var(--surface), inset 0 0 0 4px rgba(138, 111, 69, .32);
+  display: flex; align-items: center; justify-content: center;
+  padding-bottom: 8px;
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 600;
+  color: var(--ink); letter-spacing: .04em; line-height: 1;
+}
+/* fio sob a inicial, fechando o selo */
+.brand__mark::after {
+  content: ""; position: absolute; left: 50%; bottom: 11px;
+  width: 18px; height: 1px; margin-left: -9px; background: var(--bronze);
 }
 .brand__name {
-  font-family: var(--serif); font-size: 1.16rem; color: var(--ink);
+  font-family: var(--serif); font-size: 1.22rem; color: var(--ink);
   line-height: 1.15; display: block; font-weight: 600;
 }
 .brand__sub {
-  display: block; font-family: var(--sans); font-size: .68rem;
-  letter-spacing: .18em; text-transform: uppercase; color: var(--text-muted);
-  margin-top: .15rem;
+  display: block; font-family: var(--sans); font-size: .67rem;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted);
+  margin-top: .2rem; white-space: nowrap;
 }
-.nav { display: flex; align-items: center; gap: 1.9rem; }
+.nav { display: flex; align-items: center; gap: 1.3rem; }
 .nav a {
-  font-size: .93rem; color: var(--graphite); text-decoration: none;
+  font-size: .9rem; color: var(--graphite); text-decoration: none;
   padding: .3rem 0; border-bottom: 1px solid transparent;
+  white-space: nowrap;
 }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--bronze); }
-.nav a.btn { padding: .72rem 1.35rem; }
+.nav a.btn { padding: .7rem 1.15rem; }
 .nav a.btn--primary { color: #fff; border-bottom-color: transparent; }
 .nav a.btn--primary:hover { color: #fff; border-bottom-color: transparent; }
 .nav .btn { margin-left: .4rem; }
@@ -237,7 +251,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 /* ---------- Faixa de credenciais ---------- */
 .strip { background: var(--surface); border-bottom: 1px solid var(--line); }
 .strip__grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1px; background: var(--line-soft);
 }
 .strip__item { background: var(--surface); padding: 1.6rem 1.4rem; text-align: center; }
@@ -391,7 +405,11 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 .site-footer a:hover { color: #fff; text-decoration: underline; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: .55rem; }
-.footer-brand .brand__mark { border-color: rgba(192,168,121,.55); color: #c0a879; }
+.footer-brand .brand__mark {
+  border-color: rgba(192, 168, 121, .55); color: #e7ebef;
+  box-shadow: inset 0 0 0 3px #0b141d, inset 0 0 0 4px rgba(192, 168, 121, .3);
+}
+.footer-brand .brand__mark::after { background: #c0a879; }
 .footer-brand .brand__name { color: #fff; }
 .footer-brand .brand__sub { color: #7d8a96; }
 .footer-brand p { margin-top: 1.2rem; max-width: 34ch; font-size: .88rem; }
@@ -474,7 +492,7 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
   .toc { position: static; }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1040px) {
   .nav-toggle { display: inline-flex; }
   .nav {
     position: absolute; left: 0; right: 0; top: 100%;
@@ -492,7 +510,7 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 }
 
 @media (max-width: 560px) {
-  body { font-size: 16px; }
+  body { font-size: 1rem; }
   .step { grid-template-columns: 1fr; gap: .5rem; padding: 1.5rem 1.4rem; }
   .form-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
