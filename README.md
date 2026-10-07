@@ -30,22 +30,16 @@ python3 -m http.server 8000
 Os dados abaixo estão como **espaços reservados** e aparecem em todas as páginas.
 Um `grep` localiza cada ocorrência:
 
-| Item | Valor atual | Onde |
+| Item | Situação | Onde |
 |---|---|---|
-| Nome do escritório | `Soares Advocacia` | todas as páginas |
-| Número da OAB | `OAB/UF 00.000` | rodapé de todas as páginas |
-| E-mail | `contato@soaresadvocacia.com.br` | páginas + `assets/js/main.js` |
-| Telefone | `(00) 0000-0000` / `tel:+550000000000` | páginas |
-| WhatsApp | `550000000000` | botão flutuante + `assets/js/main.js` |
-| Endereço | `Rua Exemplo, 000, sala 00` | páginas |
-| Domínio | `www.soaresadvocacia.com.br` | `canonical`, Open Graph, `sitemap.xml`, `robots.txt` |
+| Nome do escritório | `Soares Advocacia` — confirmar com o contrato social | todas as páginas |
+| Sócios e OAB | preenchidos (OAB/DF 33.915 e 35.840) | seção "Sócios" e rodapé |
+| Telefones | preenchidos | páginas + `assets/js/main.js` |
+| Domínio | `soareseribeiro.adv.br` | `CNAME`, `canonical`, Open Graph, `sitemap.xml`, `robots.txt` |
+| **E-mail institucional** | **pendente** — sem caixa postal ainda | `CONFIG.email` em `assets/js/main.js` e comentário no HTML |
+| **Endereço profissional** | **pendente** — hoje só "Brasília/DF" | coluna de contato e rodapé |
 
-Substituição em lote (revise antes de rodar):
-
-```bash
-grep -rl "soaresadvocacia.com.br" . --include="*.html" --include="*.xml" --include="*.txt" --include="*.js" \
-  | xargs sed -i 's/soaresadvocacia\.com\.br/SEUDOMINIO.com.br/g'
-```
+O arquivo `CNAME` na raiz é o que informa o domínio ao GitHub Pages — não o apague.
 
 ## Formulário de contato
 
@@ -69,8 +63,12 @@ var CONFIG = {
 
 ## Publicação
 
-Por ser estático, funciona em qualquer hospedagem: Netlify, Vercel, Cloudflare Pages, GitHub Pages
-ou hospedagem tradicional via FTP. Basta subir os arquivos preservando a estrutura de pastas.
+O site é publicado automaticamente no **GitHub Pages** pelo workflow `.github/workflows/pages.yml`:
+todo push na branch de trabalho republica em cerca de um minuto. O domínio é `soareseribeiro.adv.br`,
+apontado por registros A no Registro.br para os IPs do GitHub Pages.
+
+Por ser estático, também funciona em qualquer outra hospedagem (Netlify, Vercel, Cloudflare Pages
+ou FTP tradicional), bastando subir os arquivos preservando a estrutura de pastas.
 
 ## Design
 
