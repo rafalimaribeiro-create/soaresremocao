@@ -19,7 +19,7 @@
     endpoint: '',
     // Google Analytics 4: cole aqui o ID de medição (formato G-XXXXXXXXXX).
     // Vazio = nenhuma medição é carregada e nenhum cookie é gravado.
-    analytics: 'G-TESTE12345'
+    analytics: 'G-1T85GQZYMC'
   };
 
   /* ---------------------------------------------------------
