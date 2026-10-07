@@ -10,10 +10,10 @@
      --------------------------------------------------------- */
   var CONFIG = {
     // E-mail que recebe as mensagens do formulário.
-    // Vazio enquanto o domínio .adv.br não existe: o envio sai pelo WhatsApp.
-    email: '',
+    // Provisório: trocar por contato@soareseribeiro.adv.br quando a caixa existir.
+    email: 'marcosnior@gmail.com',
     // WhatsApp em formato internacional, apenas dígitos (55 + DDD + número).
-    whatsapp: '5561981788292',
+    whatsapp: '5561981920090',
     // Opcional: URL de um serviço de formulários (Formspree, Basin, Netlify…).
     // Deixando vazio, o envio abre o cliente de e-mail do visitante.
     endpoint: ''
