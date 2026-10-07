@@ -57,9 +57,32 @@ confirmação na própria página.
 var CONFIG = {
   email: 'contato@seudominio.com.br',
   whatsapp: '5511999999999',
-  endpoint: 'https://formspree.io/f/xxxxxxx'
+  endpoint: 'https://formspree.io/f/xxxxxxx',
+  analytics: 'G-XXXXXXXXXX'
 };
 ```
+
+## Medição de audiência
+
+Preencha `analytics` em `assets/js/main.js` com o ID de medição do Google Analytics 4
+(formato `G-XXXXXXXXXX`), obtido em analytics.google.com. **Com o campo vazio, nada é
+carregado e nenhum cookie é gravado** — o site funciona normalmente sem medição.
+
+Com o ID preenchido, o visitante vê um aviso no primeiro acesso e escolhe:
+
+- **Aceitar** → o Analytics é carregado, com IP anonimizado, e a escolha fica no navegador dele;
+- **Recusar** → nenhum script de terceiro é baixado e o aviso não volta a aparecer.
+
+Eventos registrados automaticamente:
+
+| Evento | Quando dispara | Parâmetros |
+|---|---|---|
+| `contato_whatsapp` | botão flutuante ou envio do formulário pelo WhatsApp | `origem`, `assunto` |
+| `envio_formulario` | envio por e-mail ou por endpoint | `canal`, `assunto` |
+| `contato_telefone` | clique em qualquer telefone do site | `numero` |
+
+No GA4, marque esses eventos como conversão em *Administrador → Eventos* para medir
+quantos contatos o site gera.
 
 ## Publicação
 

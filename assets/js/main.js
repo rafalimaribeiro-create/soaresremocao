@@ -16,7 +16,10 @@
     whatsapp: '5561981920090',
     // Opcional: URL de um serviço de formulários (Formspree, Basin, Netlify…).
     // Deixando vazio, o envio abre o cliente de e-mail do visitante.
-    endpoint: ''
+    endpoint: '',
+    // Google Analytics 4: cole aqui o ID de medição (formato G-XXXXXXXXXX).
+    // Vazio = nenhuma medição é carregada e nenhum cookie é gravado.
+    analytics: 'G-TESTE12345'
   };
 
   /* ---------------------------------------------------------
@@ -65,6 +68,89 @@
       Array.prototype.forEach.call(detalhes, function (outro) {
         if (outro !== item) outro.open = false;
       });
+    });
+  });
+
+
+  /* ---------------------------------------------------------
+     Medição de audiência (Google Analytics 4)
+
+     Só carrega depois que o visitante aceita. Sem aceite, nenhum
+     script de terceiro é baixado e nenhum cookie é gravado.
+     --------------------------------------------------------- */
+  var CHAVE_CONSENTIMENTO = 'sr_consentimento_medicao';
+
+  function leConsentimento() {
+    try { return localStorage.getItem(CHAVE_CONSENTIMENTO); }
+    catch (e) { return null; }   // navegação privada, cookies bloqueados
+  }
+
+  function gravaConsentimento(valor) {
+    try { localStorage.setItem(CHAVE_CONSENTIMENTO, valor); } catch (e) {}
+  }
+
+  function carregaAnalytics() {
+    if (!CONFIG.analytics || window.gtag) return;
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + CONFIG.analytics;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', CONFIG.analytics, { anonymize_ip: true });
+  }
+
+  // Registra um evento. Sem consentimento ou sem ID configurado, não faz nada.
+  function rastrear(nome, parametros) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', nome, parametros || {});
+  }
+
+  function mostraAvisoDeCookies() {
+    var aviso = document.createElement('div');
+    aviso.className = 'aviso-cookies';
+    aviso.setAttribute('role', 'dialog');
+    aviso.setAttribute('aria-live', 'polite');
+    aviso.setAttribute('aria-label', 'Aviso sobre medição de audiência');
+    aviso.innerHTML =
+      '<p>Usamos uma ferramenta de medição de audiência para entender como o site é ' +
+      'utilizado. Os dados são estatísticos e não identificam você. Veja a ' +
+      '<a href="politica-de-privacidade.html">Política de Privacidade</a>.</p>' +
+      '<div class="aviso-cookies__acoes">' +
+      '<button type="button" class="btn btn--primary" data-consent="aceito">Aceitar</button>' +
+      '<button type="button" class="btn btn--ghost" data-consent="recusado">Recusar</button>' +
+      '</div>';
+    document.body.appendChild(aviso);
+    aviso.addEventListener('click', function (evento) {
+      var botao = evento.target.closest('[data-consent]');
+      if (!botao) return;
+      var escolha = botao.getAttribute('data-consent');
+      gravaConsentimento(escolha);
+      if (escolha === 'aceito') carregaAnalytics();
+      aviso.remove();
+    });
+  }
+
+  if (CONFIG.analytics) {
+    var consentimento = leConsentimento();
+    if (consentimento === 'aceito') carregaAnalytics();
+    else if (consentimento !== 'recusado') mostraAvisoDeCookies();
+  }
+
+  /* ---------------------------------------------------------
+     Eventos de contato — é o que permite saber o que converte
+     --------------------------------------------------------- */
+  var flutuante = document.querySelector('.float-wa');
+  if (flutuante) {
+    flutuante.addEventListener('click', function () {
+      rastrear('contato_whatsapp', { origem: 'botao_flutuante' });
+    });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"]'), function (link) {
+    link.addEventListener('click', function () {
+      rastrear('contato_telefone', { numero: link.getAttribute('href').replace('tel:', '') });
     });
   });
 
@@ -175,12 +261,14 @@
     var url = 'mailto:' + CONFIG.email +
       '?subject=' + encodeURIComponent('[Site] ' + d.assunto + ' — ' + d.nome) +
       '&body=' + encodeURIComponent(corpoTexto(d));
+    rastrear('envio_formulario', { canal: 'email', assunto: d.assunto });
     window.location.href = url;
     defineStatus('Abrimos seu programa de e-mail com a mensagem pronta. Basta enviá-la.', 'ok');
   }
 
   function enviaPorWhatsapp(d) {
     var texto = 'Olá, vim pelo site.\n\n' + corpoTexto(d);
+    rastrear('contato_whatsapp', { origem: 'formulario', assunto: d.assunto });
     window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
     defineStatus('Abrimos o WhatsApp com a mensagem pronta em outra aba.', 'ok');
   }
@@ -197,6 +285,7 @@
     })
       .then(function (resposta) {
         if (!resposta.ok) throw new Error('Falha no envio');
+        rastrear('envio_formulario', { canal: 'endpoint', assunto: d.assunto });
         form.reset();
         defineStatus('Mensagem recebida. O escritório retorna em até dois dias úteis.', 'ok');
       })

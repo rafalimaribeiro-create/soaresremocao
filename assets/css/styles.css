@@ -526,3 +526,26 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 .socio__tel a { text-decoration: none; color: var(--ink); }
 .socio__tel a:hover { color: var(--bronze-dk); }
 @media (max-width: 640px) { .socios { grid-template-columns: 1fr; } }
+
+/* ---------- Aviso de medição de audiência ---------- */
+.aviso-cookies {
+  position: fixed; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 70;
+  max-width: 560px; margin-inline: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--bronze);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 34px rgba(15, 27, 38, .18);
+  padding: 1.4rem 1.5rem;
+}
+.aviso-cookies p {
+  margin: 0 0 1.1rem;
+  font-size: .9rem; line-height: 1.6; color: var(--text-muted);
+}
+.aviso-cookies__acoes { display: flex; gap: .7rem; flex-wrap: wrap; }
+.aviso-cookies .btn { padding: .6rem 1.3rem; font-size: .9rem; }
+
+@media (max-width: 560px) {
+  .aviso-cookies { left: .75rem; right: .75rem; bottom: .75rem; padding: 1.2rem 1.2rem; }
+  .aviso-cookies .btn { flex: 1; justify-content: center; }
+}
