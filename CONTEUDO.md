@@ -14,15 +14,19 @@ Arquivo lido e atualizado pela rotina semanal de publicação. Mantenha-o em dia
 ## Fila (próximos temas, em ordem)
 
 1. Remoção por motivo de saúde quando a junta médica oficial diverge do laudo particular
-2. Inventário extrajudicial quando há testamento: o que mudou e o que ainda exige juízo
-3. Exercício provisório e licença para acompanhar cônjuge: quando cabe cada um
-4. Herdeiro menor no inventário: por que a via judicial é obrigatória e como funciona
-5. Remoção por processo seletivo: como atacar critérios de edital
-6. Sobrepartilha: bens descobertos depois de encerrado o inventário
-7. Cessão de direitos hereditários: o que é, quando serve e os efeitos tributários
-8. Redistribuição, cessão e remoção: três institutos que não se confundem
-9. Inventário negativo: para que serve e quando é exigido
-10. Alvará judicial para levantamento de FGTS, PIS e pequenas quantias
+2. O que fazer ao ser notificado de um processo administrativo disciplinar
+3. Cerceamento de defesa em PAD: as falhas que comprometem o processo
+4. Sindicância e PAD: a diferença que define o alcance da punição
+5. Prescrição da ação disciplinar: quando o processo não pode mais punir
+6. Inventário extrajudicial quando há testamento: o que mudou e o que ainda exige juízo
+7. Exercício provisório e licença para acompanhar cônjuge: quando cabe cada um
+8. Herdeiro menor no inventário: por que a via judicial é obrigatória e como funciona
+9. Remoção por processo seletivo: como atacar critérios de edital
+10. Sobrepartilha: bens descobertos depois de encerrado o inventário
+11. Cessão de direitos hereditários: o que é, quando serve e os efeitos tributários
+12. Redistribuição, cessão e remoção: três institutos que não se confundem
+13. Inventário negativo: para que serve e quando é exigido
+14. Alvará judicial para levantamento de FGTS, PIS e pequenas quantias
 
 ## Regras de redação
 

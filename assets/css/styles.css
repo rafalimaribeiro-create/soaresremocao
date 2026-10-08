@@ -244,7 +244,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 }
 
 /* ---------- Cartões de área ---------- */
-.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem; }
 .card {
   background: var(--surface);
   border: 1px solid var(--line);
