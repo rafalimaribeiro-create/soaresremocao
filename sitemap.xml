@@ -30,4 +30,9 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://soareseribeiro.adv.br/pagamento-itcmd-inventario-judicial-extrajudicial.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
