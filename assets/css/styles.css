@@ -512,7 +512,7 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 
 /* ---------- Sócios ---------- */
 .socios {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
+  display: grid; grid-template-columns: 1fr; gap: 1.1rem;
   margin: 2.2rem 0 0;
 }
 .socio {
@@ -528,7 +528,6 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 .socio__tel { margin: 0; font-size: .95rem; }
 .socio__tel a { text-decoration: none; color: var(--ink); }
 .socio__tel a:hover { color: var(--bronze-dk); }
-@media (max-width: 640px) { .socios { grid-template-columns: 1fr; } }
 
 /* ---------- Aviso de medição de audiência ---------- */
 .aviso-cookies {
@@ -569,3 +568,34 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 .artigo h2 a { color: var(--ink); text-decoration: none; }
 .artigo h2 a:hover { color: var(--bronze-dk); }
 .artigo p:not(.artigo__meta) { color: var(--text-muted); font-size: .98rem; }
+
+/* ---------- Sócios: foto e biografia ---------- */
+.socio {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+.socio__foto {
+  width: 128px; height: 160px;
+  object-fit: cover; object-position: center top;
+  border-radius: 2px;
+  background: var(--bg);
+}
+/* Enquanto não há retrato, um monograma discreto no lugar da foto. */
+.socio__foto--vazia {
+  display: grid; place-items: center;
+  border: 1px solid var(--line);
+  font-family: var(--serif); font-size: 1.1rem; letter-spacing: .08em;
+  color: var(--text-muted);
+}
+.socio__texto { min-width: 0; }
+.socio__bio {
+  margin: .2rem 0 .7rem;
+  font-size: .92rem; line-height: 1.6; color: var(--text-muted);
+}
+
+@media (max-width: 560px) {
+  .socio { grid-template-columns: 96px 1fr; gap: 1.1rem; }
+  .socio__foto { width: 96px; height: 120px; }
+}
