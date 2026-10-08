@@ -582,13 +582,6 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
   border-radius: 2px;
   background: var(--bg);
 }
-/* Enquanto não há retrato, um monograma discreto no lugar da foto. */
-.socio__foto--vazia {
-  display: grid; place-items: center;
-  border: 1px solid var(--line);
-  font-family: var(--serif); font-size: 1.1rem; letter-spacing: .08em;
-  color: var(--text-muted);
-}
 .socio__texto { min-width: 0; }
 .socio__bio {
   margin: .2rem 0 .7rem;
