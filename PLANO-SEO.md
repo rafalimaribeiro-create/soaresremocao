@@ -86,6 +86,53 @@ Olhar uma vez por mês, nesta ordem:
 Visitas totais são o indicador menos útil. Dez visitas de quem teve remoção negada
 valem mais que mil de curiosos.
 
+## Links patrocinados (Google Ads)
+
+### O que anúncio faz e o que não faz
+
+Anúncio e resultado orgânico são espaços separados no Google. Pagar **não** melhora
+a posição natural de nenhuma página, não acelera a indexação e não acumula nada:
+no dia em que o investimento para, a visibilidade acaba. Anúncio aluga presença;
+o trabalho das fases acima constrói posição que permanece.
+
+Isso também o distingue de tráfego artificial — bots ou visitas compradas —, que
+não é publicidade, não funciona, polui a medição e pode gerar penalização. Essa
+prática está vedada na seção anterior e assim permanece.
+
+### A questão disciplinar
+
+**Confirmar com a Comissão de Publicidade da OAB/DF antes de investir.** As fontes
+consultadas convergem no sentido de que o Provimento nº 205/2021 do CFOAB admite o
+impulsionamento de **conteúdo informativo**, com moderação e discrição, e veda o
+anúncio que ofereça serviços de forma ostensiva, prometa resultado, mencione
+honorários ou configure captação direta de clientela. Não foi possível conferir o
+texto oficial do provimento na fonte primária, e a responsabilidade disciplinar é
+dos advogados responsáveis.
+
+Regra prática que decorre disso: **o anúncio pode levar a um texto que informa; não
+pode ser uma oferta de serviço.**
+
+### Critérios, se a decisão for anunciar
+
+- **Destino**: os artigos, nunca a página inicial com chamada para contratação.
+- **Buscas**: específicas e de alta intenção — "remoção de servidor negada",
+  "defesa em PAD", "prazo de inventário DF" —, nunca termos genéricos como
+  "advogado Brasília", disputados por bancas com orçamento muito maior e onde o
+  clique é caro e desqualificado.
+- **Orçamento**: limitado e com teto diário definido desde o primeiro dia.
+- **Medição**: já instalada. Os eventos `contato_whatsapp`, `envio_formulario` e
+  `contato_telefone` permitem apurar quantos contatos cada real gerou. Sem isso,
+  não há como saber se a campanha se paga.
+- **Texto do anúncio**: informativo, sem superlativo, sem promessa, sem valores.
+
+### Ordem recomendada
+
+1. **Google Meu Negócio antes de qualquer anúncio.** É gratuito e, para advocacia,
+   costuma render mais que mídia paga.
+2. **Esperar 60 dias de Search Console.** Anunciar sabendo em quais buscas o site já
+   aparece é muito mais eficiente do que apostar no escuro.
+3. **Só então avaliar a campanha**, com os critérios acima e a confirmação da OAB/DF.
+
 ## O que não fazer
 
 - **Tráfego artificial** — bots ou visitas compradas não melhoram posição, poluem a
