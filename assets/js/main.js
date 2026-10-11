@@ -22,9 +22,9 @@
     analytics: 'G-1T85GQZYMC',
     // Google Ads: ID de conversão (AW-XXXXXXXXX) e rótulos de cada conversão.
     // Vazio = nada do Ads é carregado. Preencher ao criar a campanha.
-    ads: 'AW-TESTE123',
+    ads: '',
     adsConversoes: {
-      contato_whatsapp:  'rotuloTesteWA',   // rótulo da conversão "contato por WhatsApp"
+      contato_whatsapp:  '',   // rótulo da conversão "contato por WhatsApp"
       envio_formulario:  '',   // rótulo da conversão "formulário enviado"
       contato_telefone:  ''    // rótulo da conversão "clique no telefone"
     }
