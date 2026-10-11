@@ -19,7 +19,15 @@
     endpoint: '',
     // Google Analytics 4: cole aqui o ID de medição (formato G-XXXXXXXXXX).
     // Vazio = nenhuma medição é carregada e nenhum cookie é gravado.
-    analytics: 'G-1T85GQZYMC'
+    analytics: 'G-1T85GQZYMC',
+    // Google Ads: ID de conversão (AW-XXXXXXXXX) e rótulos de cada conversão.
+    // Vazio = nada do Ads é carregado. Preencher ao criar a campanha.
+    ads: 'AW-TESTE123',
+    adsConversoes: {
+      contato_whatsapp:  'rotuloTesteWA',   // rótulo da conversão "contato por WhatsApp"
+      envio_formulario:  '',   // rótulo da conversão "formulário enviado"
+      contato_telefone:  ''    // rótulo da conversão "clique no telefone"
+    }
   };
 
   /* ---------------------------------------------------------
@@ -90,21 +98,26 @@
   }
 
   function carregaAnalytics() {
-    if (!CONFIG.analytics || window.gtag) return;
+    var idPrincipal = CONFIG.analytics || CONFIG.ads;
+    if (!idPrincipal || window.gtag) return;
     var script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + CONFIG.analytics;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + idPrincipal;
     document.head.appendChild(script);
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
-    window.gtag('config', CONFIG.analytics, { anonymize_ip: true });
+    if (CONFIG.analytics) window.gtag('config', CONFIG.analytics, { anonymize_ip: true });
+    if (CONFIG.ads) window.gtag('config', CONFIG.ads);
   }
 
   // Registra um evento. Sem consentimento ou sem ID configurado, não faz nada.
+  // Havendo rótulo de conversão do Ads para esse evento, dispara a conversão junto.
   function rastrear(nome, parametros) {
     if (typeof window.gtag !== 'function') return;
     window.gtag('event', nome, parametros || {});
+    var rotulo = CONFIG.ads && CONFIG.adsConversoes && CONFIG.adsConversoes[nome];
+    if (rotulo) window.gtag('event', 'conversion', { send_to: CONFIG.ads + '/' + rotulo });
   }
 
   function mostraAvisoDeCookies() {
