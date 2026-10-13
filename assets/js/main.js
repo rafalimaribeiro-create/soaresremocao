@@ -167,6 +167,12 @@
     });
   });
 
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-material]'), function (link) {
+    link.addEventListener('click', function () {
+      rastrear('download_material', { material: link.getAttribute('data-material') });
+    });
+  });
+
   /* ---------------------------------------------------------
      Formulário de contato
      --------------------------------------------------------- */
