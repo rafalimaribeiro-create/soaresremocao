@@ -64,7 +64,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 
 /* Alvos de âncora não podem parar sob o cabeçalho fixo. */
 [id] { scroll-margin-top: 96px; }
-@media (max-width: 1040px) { [id] { scroll-margin-top: 1.5rem; } }
+@media (max-width: 1120px) { [id] { scroll-margin-top: 1.5rem; } }
 
 :focus-visible {
   outline: 2px solid var(--bronze);
@@ -144,14 +144,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; }
 .brand__name {
   font-family: var(--serif); font-size: 1.95rem; color: var(--ink);
-  line-height: 1.1; display: block; font-weight: 600;
+  line-height: 1.1; display: block; font-weight: 600; white-space: nowrap;
 }
 .brand__sub {
   display: block; font-family: var(--sans); font-size: .78rem;
   letter-spacing: .16em; text-transform: uppercase; color: var(--text-muted);
   margin-top: .3rem; white-space: nowrap;
 }
-.nav { display: flex; align-items: center; gap: 1.55rem; }
+.nav { display: flex; align-items: center; gap: 1.35rem; }
 .nav a {
   font-size: .9rem; color: var(--graphite); text-decoration: none;
   padding: .3rem 0; border-bottom: 1px solid transparent;
@@ -470,7 +470,9 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
   .toc { position: static; }
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1120px) {
+  /* No celular o nome pode ocupar duas linhas; forçar uma só estoura a largura. */
+  .brand__name { font-size: 1.55rem; white-space: normal; }
   .nav-toggle { display: inline-flex; }
   .nav {
     position: absolute; left: 0; right: 0; top: 100%;
@@ -489,6 +491,8 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 
 @media (max-width: 560px) {
   body { font-size: 16px; }
+  .brand__name { font-size: 1.35rem; }
+  .brand__sub { font-size: .66rem; letter-spacing: .12em; }
   .step { grid-template-columns: 1fr; gap: .5rem; padding: 1.5rem 1.4rem; }
   .form-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
