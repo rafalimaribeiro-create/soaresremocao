@@ -63,8 +63,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 ::selection { background: rgba(138, 111, 69, .18); }
 
 /* Alvos de âncora não podem parar sob o cabeçalho fixo. */
-[id] { scroll-margin-top: 96px; }
-@media (max-width: 1120px) { [id] { scroll-margin-top: 1.5rem; } }
+[id] { scroll-margin-top: 170px; }
+@media (max-width: 760px) { [id] { scroll-margin-top: 1.5rem; } }
 
 :focus-visible {
   outline: 2px solid var(--bronze);
@@ -137,16 +137,22 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
   backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid var(--line);
 }
+/* Cabeçalho em duas linhas: logotipo em cima, menu embaixo, ambos centralizados. */
 .header-inner {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1.5rem; min-height: 78px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 0; min-height: 0; padding-top: 1.1rem;
 }
 .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; }
 
 /* Logotipo do escritório. A altura manda; a largura acompanha. */
 .brand__logo { display: block; height: 46px; width: auto; }
 .site-footer .brand__logo { height: 42px; }
-.nav { display: flex; align-items: center; gap: 1.35rem; }
+.nav {
+  display: flex; align-items: center; justify-content: center; gap: 1.35rem;
+  flex: 1 0 100%;
+  margin-top: .9rem; padding: .85rem 0 .6rem;
+  border-top: 1px solid var(--line-soft);
+}
 .nav a {
   font-size: .9rem; color: var(--graphite); text-decoration: none;
   padding: .3rem 0; border-bottom: 1px solid transparent;
@@ -156,7 +162,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 .nav a.btn { padding: .7rem 1.15rem; }
 .nav a.btn--primary { color: #fff; border-bottom-color: transparent; }
 .nav a.btn--primary:hover { color: #fff; border-bottom-color: transparent; }
-.nav .btn { margin-left: .4rem; }
+.nav .btn { margin-left: .9rem; }
 
 .nav-toggle {
   display: none; width: 44px; height: 44px; background: none;
@@ -465,10 +471,16 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 
 @media (max-width: 1120px) {
   .brand__logo { height: 38px; }
+}
+
+/* Abaixo de 760px o menu não cabe mais em uma linha: volta a ser gaveta. */
+@media (max-width: 760px) {
+  .header-inner { justify-content: space-between; min-height: 78px; padding-top: 0; }
   .nav-toggle { display: inline-flex; }
   .nav {
     position: absolute; left: 0; right: 0; top: 100%;
-    flex-direction: column; align-items: stretch; gap: 0;
+    flex: none; flex-direction: column; align-items: stretch; gap: 0;
+    margin-top: 0; border-top: none;
     background: var(--surface); border-bottom: 1px solid var(--line);
     padding: .5rem 1.25rem 1.5rem;
     box-shadow: var(--shadow);
