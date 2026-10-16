@@ -120,3 +120,13 @@ OAB e o Provimento nº 205/2021 do Conselho Federal da OAB. Os textos jurídicos
 geral — **revise-os com o advogado responsável antes de publicar**, especialmente os trechos sobre
 regimes estaduais e municipais, alíquotas e prazos, que variam por localidade e mudam com
 frequência.
+
+## Cache do navegador
+
+`assets/css/styles.css` e `assets/js/main.js` são servidos com um carimbo de
+versão no endereço (`?v=` + hash do conteúdo). Sem ele, o navegador continua
+usando a versão antiga depois de um deploy, porque o nome do arquivo não muda.
+
+**Ao alterar o CSS ou o JS, rode `python3 versao.py` antes do commit.** O script
+recalcula o hash e reescreve o `?v=` nas 14 páginas. É idempotente: rodar duas
+vezes não faz diferença.
