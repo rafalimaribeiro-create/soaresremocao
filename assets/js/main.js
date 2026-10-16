@@ -21,8 +21,8 @@
     // Vazio = nenhuma medição é carregada e nenhum cookie é gravado.
     analytics: 'G-1T85GQZYMC',
     // Google Ads: ID de conversão (AW-XXXXXXXXX) e rótulos de cada conversão.
-    // Vazio = nada do Ads é carregado. Preencher ao criar a campanha.
-    ads: '',
+    // Vazio = nada do Ads é carregado.
+    ads: 'AW-18517354407',
     adsConversoes: {
       contato_whatsapp:  '',   // rótulo da conversão "contato por WhatsApp"
       envio_formulario:  '',   // rótulo da conversão "formulário enviado"
