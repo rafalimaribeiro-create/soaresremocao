@@ -132,6 +132,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 
 /* ---------- Cabeçalho ---------- */
 .site-header {
+  --logo-h: 72px;
   position: sticky; top: 0; z-index: 50;
   background: rgba(255,255,255,.96);
   backdrop-filter: saturate(140%) blur(8px);
@@ -139,13 +140,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 }
 /* Cabeçalho em duas linhas: logotipo em cima, menu embaixo, ambos centralizados. */
 .header-inner {
+  position: relative;
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
   gap: 0; min-height: 0; padding-top: 1.1rem;
 }
 .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; }
 
 /* Logotipo do escritório. A altura manda; a largura acompanha. */
-.brand__logo { display: block; height: 46px; width: auto; }
+.brand__logo { display: block; height: var(--logo-h); width: auto; }
 .site-footer .brand__logo { height: 42px; }
 .nav {
   display: flex; align-items: center; justify-content: center; gap: 1.35rem;
@@ -163,6 +165,13 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 .nav a.btn--primary { color: #fff; border-bottom-color: transparent; }
 .nav a.btn--primary:hover { color: #fff; border-bottom-color: transparent; }
 .nav .btn { margin-left: .9rem; }
+/* O botão de contato sai da linha do menu e sobe para o canto direito,
+   alinhado verticalmente ao centro do logotipo. */
+.nav .btn--primary {
+  position: absolute; right: 0; margin: 0;
+  top: calc(1.1rem + var(--logo-h) / 2);
+  transform: translateY(-50%);
+}
 
 .nav-toggle {
   display: none; width: 44px; height: 44px; background: none;
@@ -470,7 +479,7 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
 }
 
 @media (max-width: 1120px) {
-  .brand__logo { height: 38px; }
+  .site-header { --logo-h: 58px; }
 }
 
 /* Abaixo de 760px o menu não cabe mais em uma linha: volta a ser gaveta. */
@@ -490,12 +499,13 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
   .nav a { padding: .9rem 0; border-bottom: 1px solid var(--line-soft); }
   .nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--line-soft); }
   .nav .btn { margin: 1rem 0 0; justify-content: center; }
+  .nav .btn--primary { position: static; transform: none; margin: 1rem 0 0; }
   .site-header { position: relative; }
 }
 
 @media (max-width: 560px) {
   body { font-size: 16px; }
-  .brand__logo { height: 30px; }
+  .site-header { --logo-h: 40px; }
   .site-footer .brand__logo { height: 34px; }
   .step { grid-template-columns: 1fr; gap: .5rem; padding: 1.5rem 1.4rem; }
   .form-grid { grid-template-columns: 1fr; }
