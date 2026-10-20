@@ -7,6 +7,7 @@ Arquivo lido e atualizado pela rotina semanal de publicação. Mantenha-o em dia
 
 | Data | Artigo | Arquivo |
 |---|---|---|
+| 2026-10-20 | Cobrança por estimativa: o STJ, o Ecad e os hotéis | `cobranca-por-estimativa-ecad-hoteis-stj.html` |
 | 2026-10-15 | Despejo por falta de pagamento: o procedimento e a purgação da mora | `despejo-por-falta-de-pagamento-purgacao-da-mora.html` |
 | 2026-10-13 | Guia do locador: como alugar seu imóvel com segurança | `guia-do-locador.html` |
 | 2026-10-13 | Guia do locatário: o que verificar antes de assinar | `guia-do-locatario.html` |
