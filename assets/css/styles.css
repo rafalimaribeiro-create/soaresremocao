@@ -156,7 +156,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
   border-top: 1px solid var(--line-soft);
 }
 .nav a {
-  font-size: .9rem; color: var(--graphite); text-decoration: none;
+  font-size: 1.02rem; color: var(--graphite); text-decoration: none;
   padding: .3rem 0; border-bottom: 1px solid transparent;
   white-space: nowrap;
 }
