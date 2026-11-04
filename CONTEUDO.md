@@ -7,6 +7,7 @@ Arquivo lido e atualizado pela rotina semanal de publicação. Mantenha-o em dia
 
 | Data | Artigo | Arquivo |
 |---|---|---|
+| 2026-11-04 | O que fazer ao ser notificado de um processo administrativo disciplinar | `notificado-processo-administrativo-disciplinar.html` |
 | 2026-10-28 | Remoção por motivo de saúde quando a junta médica oficial diverge do laudo particular | `remocao-motivo-de-saude-junta-medica-oficial.html` |
 | 2026-10-21 | Fiança locatícia: o que o fiador assume e como se exonerar | `fianca-locaticia-fiador-exoneracao.html` |
 | 2026-10-20 | Cobrança por estimativa: o STJ, o Ecad e os hotéis | `cobranca-por-estimativa-ecad-hoteis-stj.html` |
@@ -19,19 +20,18 @@ Arquivo lido e atualizado pela rotina semanal de publicação. Mantenha-o em dia
 
 ## Fila (próximos temas, em ordem)
 
-1. O que fazer ao ser notificado de um processo administrativo disciplinar
-2. Cerceamento de defesa em PAD: as falhas que comprometem o processo
-3. Sindicância e PAD: a diferença que define o alcance da punição
-4. Prescrição da ação disciplinar: quando o processo não pode mais punir
-5. Inventário extrajudicial quando há testamento: o que mudou e o que ainda exige juízo
-6. Exercício provisório e licença para acompanhar cônjuge: quando cabe cada um
-7. Herdeiro menor no inventário: por que a via judicial é obrigatória e como funciona
-8. Remoção por processo seletivo: como atacar critérios de edital
-9. Sobrepartilha: bens descobertos depois de encerrado o inventário
-10. Cessão de direitos hereditários: o que é, quando serve e os efeitos tributários
-11. Redistribuição, cessão e remoção: três institutos que não se confundem
-12. Inventário negativo: para que serve e quando é exigido
-13. Alvará judicial para levantamento de FGTS, PIS e pequenas quantias
+1. Cerceamento de defesa em PAD: as falhas que comprometem o processo
+2. Sindicância e PAD: a diferença que define o alcance da punição
+3. Prescrição da ação disciplinar: quando o processo não pode mais punir
+4. Inventário extrajudicial quando há testamento: o que mudou e o que ainda exige juízo
+5. Exercício provisório e licença para acompanhar cônjuge: quando cabe cada um
+6. Herdeiro menor no inventário: por que a via judicial é obrigatória e como funciona
+7. Remoção por processo seletivo: como atacar critérios de edital
+8. Sobrepartilha: bens descobertos depois de encerrado o inventário
+9. Cessão de direitos hereditários: o que é, quando serve e os efeitos tributários
+10. Redistribuição, cessão e remoção: três institutos que não se confundem
+11. Inventário negativo: para que serve e quando é exigido
+12. Alvará judicial para levantamento de FGTS, PIS e pequenas quantias
 
 ## Regras de redação
 

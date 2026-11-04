@@ -81,6 +81,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://soareseribeiro.adv.br/notificado-processo-administrativo-disciplinar.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://soareseribeiro.adv.br/guia-gratuito-lei-do-inquilinato.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
