@@ -16,6 +16,7 @@ def versao(caminho):
 ALVOS = {
     'assets/css/styles.css': versao('assets/css/styles.css'),
     'assets/js/main.js':     versao('assets/js/main.js'),
+    'assets/js/triagem.js':  versao('assets/js/triagem.js'),
 }
 
 mudadas = 0

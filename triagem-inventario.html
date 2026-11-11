@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seu inventário pode ser feito em cartório? Triagem gratuita — Soares e Ribeiro</title>
+<meta name="description" content="Responda a sete perguntas e descubra se o inventário pode ser feito em cartório, se o prazo já está correndo e quais documentos reunir. Ferramenta gratuita.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://soareseribeiro.adv.br/triagem-inventario.html">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Soares e Ribeiro">
+<meta property="og:title" content="Seu inventário pode ser feito em cartório? — Soares e Ribeiro">
+<meta property="og:description" content="Triagem gratuita: via cabível, prazo legal e lista de documentos para o seu caso.">
+<meta property="og:url" content="https://soareseribeiro.adv.br/triagem-inventario.html">
+<meta property="og:image" content="https://soareseribeiro.adv.br/assets/img/og-imagem.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Soares e Ribeiro Advocacia">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/icone-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/img/icone-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css?v=b41633fd">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand__logo" src="assets/img/logo.png"
+           srcset="assets/img/logo.png 1x, assets/img/logo@2x.png 2x"
+           width="720" height="137" alt="Soares e Ribeiro Advocacia">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principal" aria-label="Abrir menu de navegação">
+      <span></span>
+    </button>
+    <nav class="nav" id="nav-principal" aria-label="Navegação principal">
+      <a href="remocao-servidor-publico.html">Remoção</a>
+      <a href="pad-sindicancia-defesa-servidor.html">PAD</a>
+      <a href="inventario.html">Inventário</a>
+      <a href="locacao.html">Locação</a>
+      <a href="artigos.html">Artigos</a>
+      <a href="index.html#escritorio">Escritório</a>
+      <a class="btn btn--primary" href="index.html#contato">Falar com o escritório</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Início</a> &nbsp;/&nbsp; <a href="inventario.html">Inventário</a> &nbsp;/&nbsp; Triagem</p>
+    <p class="eyebrow">Ferramenta gratuita</p>
+    <h1>Seu inventário pode ser feito em cartório?</h1>
+    <p>
+      Responda a sete perguntas rápidas e veja, na hora, qual via costuma ser cabível no seu caso,
+      se o prazo legal já está correndo contra você e quais documentos começar a reunir.
+      Leva cerca de dois minutos.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap triagem">
+
+    <form class="triagem__form" id="triagem-form" novalidate>
+      <p class="triagem__progresso" id="triagem-progresso" aria-live="polite"></p>
+
+      <fieldset class="triagem__q" data-q="obito">
+        <legend><span class="triagem__n">1</span> Quando ocorreu o falecimento?</legend>
+        <div class="field">
+          <label for="t-data">Data do óbito</label>
+          <input type="date" id="t-data" name="data">
+        </div>
+        <label class="triagem__check"><input type="checkbox" name="semData" value="1"> Prefiro não informar agora</label>
+      </fieldset>
+
+      <fieldset class="triagem__q" data-q="consenso">
+        <legend><span class="triagem__n">2</span> Os herdeiros estão de acordo sobre como dividir os bens?</legend>
+        <div class="triagem__opcoes">
+          <label class="triagem__op"><input type="radio" name="consenso" value="sim"><span>Sim, há acordo</span></label>
+          <label class="triagem__op"><input type="radio" name="consenso" value="talvez"><span>Ainda não conversamos / não sei</span></label>
+          <label class="triagem__op"><input type="radio" name="consenso" value="nao"><span>Não, há divergência</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="triagem__q" data-q="menor">
+        <legend><span class="triagem__n">3</span> Algum herdeiro é menor de 18 anos ou incapaz?</legend>
+        <div class="triagem__opcoes">
+          <label class="triagem__op"><input type="radio" name="menor" value="nao"><span>Não</span></label>
+          <label class="triagem__op"><input type="radio" name="menor" value="sim"><span>Sim</span></label>
+          <label class="triagem__op"><input type="radio" name="menor" value="nascituro"><span>Há uma gestação em curso</span></label>
+        </div>
+        <div class="triagem__sub" data-show-when="menor=sim" hidden>
+          <p class="triagem__sub-p">Todos os herdeiros aceitam ficar com <strong>uma fração de cada bem</strong> (por exemplo, cada um com uma parte do imóvel), em vez de cada um ficar com bens diferentes?</p>
+          <div class="triagem__opcoes">
+            <label class="triagem__op"><input type="radio" name="fracao" value="sim"><span>Sim, frações de cada bem</span></label>
+            <label class="triagem__op"><input type="radio" name="fracao" value="nao"><span>Não, queremos dividir bens específicos</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="triagem__q" data-q="testamento">
+        <legend><span class="triagem__n">4</span> O falecido deixou testamento?</legend>
+        <div class="triagem__opcoes">
+          <label class="triagem__op"><input type="radio" name="testamento" value="nao"><span>Não</span></label>
+          <label class="triagem__op"><input type="radio" name="testamento" value="sim"><span>Sim</span></label>
+          <label class="triagem__op"><input type="radio" name="testamento" value="naosei"><span>Não sei</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="triagem__q" data-q="estadoCivil">
+        <legend><span class="triagem__n">5</span> Qual era o estado civil do falecido?</legend>
+        <div class="triagem__opcoes">
+          <label class="triagem__op"><input type="radio" name="estadoCivil" value="casado"><span>Casado(a)</span></label>
+          <label class="triagem__op"><input type="radio" name="estadoCivil" value="uniao"><span>União estável</span></label>
+          <label class="triagem__op"><input type="radio" name="estadoCivil" value="solteiro"><span>Solteiro(a)</span></label>
+          <label class="triagem__op"><input type="radio" name="estadoCivil" value="divorciado"><span>Divorciado(a)</span></label>
+          <label class="triagem__op"><input type="radio" name="estadoCivil" value="viuvo"><span>Viúvo(a)</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="triagem__q" data-q="bens">
+        <legend><span class="triagem__n">6</span> Que bens fazem parte da herança? <small>Marque todos que se aplicam.</small></legend>
+        <div class="triagem__opcoes triagem__opcoes--multi">
+          <label class="triagem__op"><input type="checkbox" name="bens" value="imovel"><span>Imóvel urbano (casa, apartamento, lote)</span></label>
+          <label class="triagem__op"><input type="checkbox" name="bens" value="rural"><span>Imóvel rural</span></label>
+          <label class="triagem__op"><input type="checkbox" name="bens" value="veiculo"><span>Veículo</span></label>
+          <label class="triagem__op"><input type="checkbox" name="bens" value="contas"><span>Contas e investimentos</span></label>
+          <label class="triagem__op"><input type="checkbox" name="bens" value="empresa"><span>Empresa ou quotas de sociedade</span></label>
+          <label class="triagem__op"><input type="checkbox" name="bens" value="exterior"><span>Bens no exterior</span></label>
+          <label class="triagem__op"><input type="checkbox" name="bens" value="pequenos"><span>Apenas FGTS, PIS ou pequenos saldos</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="triagem__q" data-q="dividas">
+        <legend><span class="triagem__n">7</span> O falecido deixou dívidas relevantes?</legend>
+        <div class="triagem__opcoes">
+          <label class="triagem__op"><input type="radio" name="dividas" value="nao"><span>Não, ou valores pequenos</span></label>
+          <label class="triagem__op"><input type="radio" name="dividas" value="sim"><span>Sim</span></label>
+          <label class="triagem__op"><input type="radio" name="dividas" value="naosei"><span>Não sei</span></label>
+        </div>
+      </fieldset>
+
+      <p class="triagem__erro" id="triagem-erro" role="alert"></p>
+      <button type="submit" class="btn btn--primary">Ver resultado</button>
+      <p class="triagem__privacidade">As respostas ficam apenas no seu navegador. Nada é enviado ao escritório, a menos que você decida nos mandar o resumo.</p>
+    </form>
+
+    <div class="triagem__resultado" id="triagem-resultado" tabindex="-1" hidden></div>
+
+  </div>
+</section>
+
+<section class="section section--ink cta">
+  <div class="wrap">
+    <hr class="rule" style="margin-inline:auto">
+    <h2>Quer entender cada via em detalhe?</h2>
+    <p>
+      Requisitos, prazos, documentos e custos do inventário em cartório e em juízo, explicados
+      passo a passo.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--light" href="inventario.html">Guia do inventário</a>
+      <a class="btn btn--light" href="prazo-inventario-multa-itcd-df.html">Prazo e multa do ITCD no DF</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img class="brand__logo" src="assets/img/logo-claro.png"
+               srcset="assets/img/logo-claro.png 1x, assets/img/logo-claro@2x.png 2x"
+               width="560" height="106" alt="Soares e Ribeiro Advocacia">
+        </a>
+        <p>
+          Atuação concentrada em remoção de servidor público e em inventário extrajudicial e
+          judicial, com atendimento em todo o território nacional.
+        </p>
+      </div>
+      <div>
+        <h4>Atuação</h4>
+        <ul>
+          <li><a href="remocao-servidor-publico.html">Remoção de servidor público</a></li>
+          <li><a href="pad-sindicancia-defesa-servidor.html">Defesa em PAD e sindicância</a></li>
+          <li><a href="locacao.html">Locação de imóveis</a></li>
+          <li><a href="inventario.html">Inventário extrajudicial</a></li>
+          <li><a href="inventario.html#judicial">Inventário judicial</a></li>
+          <li><a href="inventario.html#comparativo">Comparativo das vias</a></li>
+          <li><a href="triagem-inventario.html">Triagem gratuita de inventário</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="artigos.html">Artigos</a></li>
+          <li><a href="index.html#atuacao">Como atuamos</a></li>
+          <li><a href="index.html#duvidas">Perguntas frequentes</a></li>
+          <li><a href="index.html#escritorio">O escritório</a></li>
+          <li><a href="guia-gratuito-lei-do-inquilinato.html">Guia gratuito de locação</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li>Marcos Soares da Silva Júnior<br><a href="tel:+5561981920090">(61) 98192-0090</a></li>
+          <li>Rafael Lima Ribeiro<br><a href="tel:+5561981788292">(61) 98178-8292</a></li>
+          <li>SHIN QI 16, Conjunto 2, Casa 16<br>Lago Norte — Brasília/DF<br>CEP 71530-220</li>
+          <li>Seg. a sex., 9h às 18h</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-note">
+      Este site tem finalidade meramente informativa, em conformidade com o Código de Ética e
+      Disciplina da OAB e com o Provimento nº 205/2021 do Conselho Federal da OAB. Não há oferta de
+      serviços, promessa de resultado, divulgação de valores de honorários ou captação de clientela.
+      As informações veiculadas não substituem a consulta a profissional habilitado para a análise
+      do caso concreto.
+    </p>
+
+    <div class="footer-bottom">
+      <span>&copy; <span data-ano>2026</span> Soares e Ribeiro &middot; Marcos Soares da Silva Júnior — OAB/DF 33.915 &middot; Rafael Lima Ribeiro — OAB/DF 35.840</span>
+      <span><a href="politica-de-privacidade.html">Política de Privacidade</a> &middot; <a href="index.html#contato">Contato</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/5561981920090?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20invent%C3%A1rio." target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m-2.6 4.1c-.2 0-.51.07-.78.37-.27.3-1.02 1-1.02 2.42s1.05 2.8 1.19 3c.15.2 2.05 3.13 4.97 4.27.69.3 1.23.48 1.65.61.69.22 1.33.19 1.83.12.56-.09 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34-.3-.15-1.73-.86-2-.95-.27-.1-.46-.15-.66.15-.2.3-.76.94-.93 1.14-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.46-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.58-.9-2.17-.24-.57-.48-.49-.66-.5z"/>
+  </svg>
+  <span>WhatsApp</span>
+</a>
+
+<script src="assets/js/triagem.js?v=14c98aa0" defer></script>
+<script src="assets/js/main.js?v=5a3e350a" defer></script>
+</body>
+</html>
