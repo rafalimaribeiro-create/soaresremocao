@@ -7,13 +7,81 @@ Arquivos desta pasta:
 - `anuncios.csv` — títulos e descrições de cada grupo, já dentro dos limites do Google
   (30 caracteres nos títulos, 90 nas descrições), com a URL de destino
 
-## Antes de começar
+## Antes de começar — o que o Provimento 205/2021 permite
 
-Confirmar com a Comissão de Publicidade da OAB/DF. As fontes consultadas indicam que o
-Provimento nº 205/2021 admite impulsionar **conteúdo informativo** e veda o anúncio que
-ofereça serviços de forma ostensiva, prometa resultado ou mencione honorários. Os textos
-desta pasta foram escritos nesse espírito — descrevem o que o leitor vai encontrar, não
-oferecem contratação —, mas a responsabilidade disciplinar é dos advogados responsáveis.
+Texto conferido no site do Conselho Federal da OAB em novembro de 2026
+(`oab.org.br/leisnormas/legislacao/provimentos/205-2021`). Anúncio pago **é
+permitido**:
+
+> **Art. 4º** No marketing de conteúdos jurídicos poderá ser utilizada a publicidade
+> ativa ou passiva, desde que não esteja incutida a mercantilização, a captação de
+> clientela ou o emprego excessivo de recursos financeiros, sendo admitida a utilização
+> de anúncios, pagos ou não, nos meios de comunicação, exceto nos meios vedados pelo
+> art. 40 do Código de Ética e Disciplina […]
+
+> **Art. 5º** A publicidade profissional permite a utilização de anúncios, pagos ou não,
+> nos meios de comunicação não vedados pelo art. 40 do Código de Ética e Disciplina.
+
+Os limites que recaem sobre o texto do anúncio estão no **art. 3º**: a publicidade deve
+ter "caráter meramente informativo" e primar "pela discrição e sobriedade", sendo vedados
+(I) referência a honorários, forma de pagamento, gratuidade ou desconto; (II) informação
+que possa induzir a erro; (III) anúncio de especialidade sem título certificado ou
+notória especialização; (IV) **orações ou expressões persuasivas, de autoengrandecimento
+ou de comparação**; (V) distribuição indiscriminada de material. O § 1º acrescenta que a
+divulgação não pode **incitar diretamente ao litígio ou à contratação de serviços**.
+
+O **art. 6º** veda informação sobre dimensões, qualidades ou estrutura física do
+escritório, promessa de resultado e uso de casos concretos para oferta de atuação.
+
+### Auditoria dos textos desta pasta
+
+Conferidos contra os artigos acima:
+
+| Item | Situação |
+|---|---|
+| Honorários, descontos, valores | Ausentes em todos os anúncios — art. 3º, I, atendido |
+| Promessa de resultado | Ausente — art. 6º atendido |
+| Caso concreto, estrutura do escritório | Ausentes — art. 6º atendido |
+| Superlativo, comparação, autoelogio | Ausentes — art. 3º, IV, atendido |
+| "Direito administrativo e civil" | Área de atuação, não especialidade certificada. É a linha a confirmar com a Comissão, por causa do art. 3º, III |
+| "Notificado de um PAD?", "Pedido de remoção negado?" | **Pontos de atenção.** São perguntas dirigidas a quem tem o problema. Levam a página informativa, o que joga a favor; mas é onde um exame disciplinar olharia primeiro, pelo art. 3º, § 1º (não incitar à contratação). Alternativas mais neutras: "Prazos da defesa em PAD", "Remoção negada: o que diz a lei" |
+| Orçamento | O art. 4º veda "emprego excessivo de recursos financeiros" sem definir limite. R$ 30 a 50 por dia é modesto para o padrão de mídia paga, mas o critério é discrição, e quem o aplica é a OAB |
+
+**A confirmação com a Comissão de Publicidade da OAB/DF continua recomendada** — não
+porque o anúncio seja proibido, mas porque os limites dos arts. 3º e 6º são avaliados
+caso a caso, e a responsabilidade disciplinar é dos advogados responsáveis. Existe,
+desde 2021, um Comitê Regulador do Marketing Jurídico no Conselho Federal (art. 9º).
+
+## Antes de gastar o primeiro real
+
+A campanha pode estar perfeita e ainda assim o dinheiro ser perdido, porque hoje o site
+**não registra conversão no Ads e não captura nenhum contato**. Três bloqueios, em ordem:
+
+- [ ] **Rótulos de conversão vazios.** Em `assets/js/main.js`, `ads` já tem o ID
+      `AW-18517354407`, mas `adsConversoes` está com os três rótulos em branco. Sem eles
+      o Ads recebe cliques e nenhuma conversão — não há como saber o que funcionou. Os
+      rótulos nascem no passo 5 abaixo.
+- [ ] **Formulário sem destino.** `endpoint` está vazio, então o envio só abre o e-mail
+      do visitante ou o WhatsApp. Quem desiste no meio não deixa rastro, e não existe
+      lista de contatos. Um serviço de formulário (Formspree, Basin) resolve em minutos.
+- [ ] **E-mail provisório.** O site ainda aponta para um endereço `@gmail.com`. Pagar
+      por clique para entregar o visitante a um Gmail é desperdício de credibilidade no
+      ponto exato em que ela é decidida.
+
+## A conta que decide tudo
+
+Antes de ativar, escrever o número que torna a campanha viável:
+
+```
+custo por clique × cliques necessários para um contato = custo por contato
+custo por contato ÷ taxa de contatos que viram caso = custo por cliente
+```
+
+Com R$ 50 por dia (R$ 1.500 por mês) e CPC de R$ 8 a 15 nessas buscas, são 100 a 190
+cliques por mês. A 5% de conversão em contato, 5 a 9 contatos. Se um em cada três vira
+caso, 2 a 3 clientes por mês. **Esses números são estimativa, não medição** — o
+Planejador de Palavras-Chave (passo 6) dá o CPC real em Brasília, e é ele que substitui
+essa conta por uma de verdade.
 
 ## 1. Criar a conta
 

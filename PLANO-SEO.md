@@ -101,13 +101,21 @@ prática está vedada na seção anterior e assim permanece.
 
 ### A questão disciplinar
 
-**Confirmar com a Comissão de Publicidade da OAB/DF antes de investir.** As fontes
-consultadas convergem no sentido de que o Provimento nº 205/2021 do CFOAB admite o
-impulsionamento de **conteúdo informativo**, com moderação e discrição, e veda o
-anúncio que ofereça serviços de forma ostensiva, prometa resultado, mencione
-honorários ou configure captação direta de clientela. Não foi possível conferir o
-texto oficial do provimento na fonte primária, e a responsabilidade disciplinar é
-dos advogados responsáveis.
+Texto conferido no site do Conselho Federal da OAB em novembro de 2026. O Provimento
+nº 205/2021 **admite expressamente o anúncio pago**: o art. 4º diz ser "admitida a
+utilização de anúncios, pagos ou não, nos meios de comunicação", e o art. 5º repete a
+permissão. O que o provimento condiciona é o conteúdo e a medida: nada de
+mercantilização, captação de clientela ou "emprego excessivo de recursos financeiros"
+(art. 4º); publicidade de "caráter meramente informativo", com discrição e sobriedade,
+vedadas a referência a honorários, a informação que induza a erro, o anúncio de
+especialidade sem título, as expressões persuasivas, de autoengrandecimento ou de
+comparação (art. 3º) e a incitação direta à contratação (art. 3º, § 1º); vedadas ainda
+a promessa de resultado e a menção a casos concretos (art. 6º).
+
+**A confirmação com a Comissão de Publicidade da OAB/DF segue recomendada antes de
+investir** — os limites são avaliados caso a caso e a responsabilidade disciplinar é
+dos advogados responsáveis. A auditoria dos anúncios já escritos está em
+`ads/README.md`.
 
 Regra prática que decorre disso: **o anúncio pode levar a um texto que informa; não
 pode ser uma oferta de serviço.**
