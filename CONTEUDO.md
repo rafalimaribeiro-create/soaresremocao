@@ -7,6 +7,7 @@ Arquivo lido e atualizado pela rotina semanal de publicação. Mantenha-o em dia
 
 | Data | Artigo | Arquivo |
 |---|---|---|
+| 2026-11-17 | O que o STJ decidiu sobre remoção por motivo de saúde (REsp 2.151.392) | `stj-remocao-motivo-de-saude-resp-2151392.html` |
 | 2026-11-11 | Cerceamento de defesa em PAD: as falhas que comprometem o processo | `cerceamento-de-defesa-pad.html` |
 | 2026-11-04 | O que fazer ao ser notificado de um processo administrativo disciplinar | `notificado-processo-administrativo-disciplinar.html` |
 | 2026-10-28 | Remoção por motivo de saúde quando a junta médica oficial diverge do laudo particular | `remocao-motivo-de-saude-junta-medica-oficial.html` |
