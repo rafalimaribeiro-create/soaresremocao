@@ -154,10 +154,47 @@
   /* ---------------------------------------------------------
      Eventos de contato — é o que permite saber o que converte
      --------------------------------------------------------- */
+  /* ---------------------------------------------------------
+     WhatsApp com contexto
+
+     O site é estático: a conversa acontece dentro do WhatsApp e
+     não há como guardá-la aqui. O que dá para fazer é cada
+     contato chegar já dizendo de onde veio — assim o escritório
+     identifica o assunto, etiqueta a conversa no WhatsApp
+     Business e consegue retomá-la depois.
+     --------------------------------------------------------- */
+  function ehPaginaInicial() {
+    return /(^\/$|index\.html$)/.test(location.pathname);
+  }
+
+  function paginaDeOrigem() {
+    // Na home o <h1> é um slogan, não serve como nome de página.
+    if (ehPaginaInicial()) return 'p\u00e1gina inicial';
+    var titulo = document.querySelector('.page-head h1') || document.querySelector('h1');
+    var nome = titulo ? titulo.textContent : document.title.split('\u2014')[0];
+    return nome.replace(/\s+/g, ' ').trim().slice(0, 90);
+  }
+
+  function origemPorExtenso() {
+    return ehPaginaInicial()
+      ? 'pela p\u00e1gina inicial'
+      : 'pela p\u00e1gina "' + paginaDeOrigem() + '"';
+  }
+
+  function mensagemDeContato() {
+    return 'Ol\u00e1! Vim ' + origemPorExtenso() + ' do site de voc\u00eas.'
+         + '\n\nGostaria de falar com o escrit\u00f3rio sobre esse assunto.';
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('a[href*="wa.me/"]'), function (link) {
+    link.setAttribute('href', link.getAttribute('href').split('?')[0]
+      + '?text=' + encodeURIComponent(mensagemDeContato()));
+  });
+
   var flutuante = document.querySelector('.float-wa');
   if (flutuante) {
     flutuante.addEventListener('click', function () {
-      rastrear('contato_whatsapp', { origem: 'botao_flutuante' });
+      rastrear('contato_whatsapp', { origem: 'botao_flutuante', pagina: paginaDeOrigem() });
     });
   }
 
@@ -286,7 +323,7 @@
   }
 
   function enviaPorWhatsapp(d) {
-    var texto = 'Olá, vim pelo site.\n\n' + corpoTexto(d);
+    var texto = 'Olá, vim ' + origemPorExtenso() + ' do site.\n\n' + corpoTexto(d);
     rastrear('contato_whatsapp', { origem: 'formulario', assunto: d.assunto });
     window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
     defineStatus('Abrimos o WhatsApp com a mensagem pronta em outra aba.', 'ok');
