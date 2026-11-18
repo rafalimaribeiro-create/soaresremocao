@@ -15,8 +15,12 @@
     // WhatsApp em formato internacional, apenas dígitos (55 + DDD + número).
     whatsapp: '5561981920090',
     // Opcional: URL de um serviço de formulários (Formspree, Basin, Netlify…).
-    // Deixando vazio, o envio abre o cliente de e-mail do visitante.
+    // Deixando vazio, o envio abre o cliente de e-mail do visitante — e a
+    // captura antes do WhatsApp fica desligada, porque não haveria onde gravar.
     endpoint: '',
+    // Pedir nome e telefone antes de abrir o WhatsApp. Só tem efeito com
+    // endpoint preenchido. Pôr false desliga a captura e mantém o botão direto.
+    capturaWhatsapp: true,
     // Google Analytics 4: cole aqui o ID de medição (formato G-XXXXXXXXXX).
     // Vazio = nenhuma medição é carregada e nenhum cookie é gravado.
     analytics: 'G-1T85GQZYMC',
@@ -186,10 +190,157 @@
          + '\n\nGostaria de falar com o escrit\u00f3rio sobre esse assunto.';
   }
 
+  function linkWhatsapp(texto) {
+    return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(texto);
+  }
+
   Array.prototype.forEach.call(document.querySelectorAll('a[href*="wa.me/"]'), function (link) {
     link.setAttribute('href', link.getAttribute('href').split('?')[0]
       + '?text=' + encodeURIComponent(mensagemDeContato()));
   });
+
+  /* ---------------------------------------------------------
+     Captura antes do WhatsApp
+
+     Quem clica e desiste de mandar a mensagem some sem deixar
+     rastro. Este passo pede nome e telefone, grava no serviço
+     configurado em CONFIG.endpoint e só então abre o WhatsApp,
+     já com os dados na mensagem.
+
+     Sem endpoint não há onde gravar, então a captura nem
+     aparece: seria atrito sem contrapartida.
+     --------------------------------------------------------- */
+  var capturaAtiva = !!(CONFIG.endpoint && CONFIG.capturaWhatsapp);
+
+  if (capturaAtiva) (function () {
+    var caixa = null, destinoDireto = '', devolveFoco = null;
+
+    function monta() {
+      var el = document.createElement('div');
+      el.className = 'captura';
+      el.setAttribute('hidden', '');
+      el.innerHTML =
+        '<div class="captura__caixa" role="dialog" aria-modal="true" aria-labelledby="captura-titulo">' +
+          '<button type="button" class="captura__fechar" aria-label="Fechar">&times;</button>' +
+          '<p class="captura__rot">Antes de continuar</p>' +
+          '<h2 id="captura-titulo">Como podemos te chamar?</h2>' +
+          '<p class="captura__sub">Assim o escrit\u00f3rio j\u00e1 sabe com quem fala e consegue retomar o contato se a conversa se perder.</p>' +
+          '<p class="captura__assunto">Assunto: <strong data-captura-assunto></strong></p>' +
+          '<form novalidate>' +
+            '<div class="field"><label for="captura-nome">Nome</label>' +
+              '<input id="captura-nome" name="nome" type="text" autocomplete="name" required></div>' +
+            '<div class="field"><label for="captura-tel">WhatsApp com DDD</label>' +
+              '<input id="captura-tel" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(61) 99999-9999" required></div>' +
+            '<p class="captura__erro" role="alert" hidden></p>' +
+            '<label class="captura__consent"><input type="checkbox" name="consentimento" required>' +
+              '<span>Autorizo o escrit\u00f3rio a guardar meu nome e telefone para retornar este contato, nos termos da ' +
+              '<a href="politica-de-privacidade.html" target="_blank" rel="noopener">Pol\u00edtica de Privacidade</a>.</span></label>' +
+            '<div class="captura__acoes">' +
+              '<button type="submit" class="btn btn--primary">Continuar no WhatsApp</button>' +
+              '<button type="button" class="captura__direto">Prefiro ir direto, sem informar</button>' +
+            '</div>' +
+          '</form>' +
+        '</div>';
+      document.body.appendChild(el);
+
+      el.querySelector('.captura__fechar').addEventListener('click', fecha);
+      el.querySelector('.captura__direto').addEventListener('click', function () {
+        rastrear('contato_whatsapp', { origem: 'captura_pulada', pagina: paginaDeOrigem() });
+        segue(destinoDireto);
+      });
+      el.addEventListener('click', function (ev) { if (ev.target === el) fecha(); });
+      el.querySelector('form').addEventListener('submit', envia);
+      return el;
+    }
+
+    function mostraErro(texto) {
+      var p = caixa.querySelector('.captura__erro');
+      p.textContent = texto || '';
+      if (texto) p.removeAttribute('hidden'); else p.setAttribute('hidden', '');
+    }
+
+    function abre(destino, gatilho) {
+      if (!caixa) caixa = monta();
+      destinoDireto = destino;
+      devolveFoco = gatilho || null;
+      caixa.querySelector('[data-captura-assunto]').textContent = paginaDeOrigem();
+      mostraErro('');
+      caixa.removeAttribute('hidden');
+      document.addEventListener('keydown', escapa);
+      setTimeout(function () { caixa.querySelector('#captura-nome').focus(); }, 30);
+      rastrear('captura_aberta', { pagina: paginaDeOrigem() });
+    }
+
+    function fecha() {
+      if (!caixa) return;
+      caixa.setAttribute('hidden', '');
+      document.removeEventListener('keydown', escapa);
+      if (devolveFoco && devolveFoco.focus) devolveFoco.focus();
+    }
+
+    function escapa(ev) { if (ev.key === 'Escape') fecha(); }
+
+    function segue(url) {
+      fecha();
+      window.open(url, '_blank', 'noopener');
+    }
+
+    function grava(dados) {
+      // Disparo sem espera: o WhatsApp abre no mesmo gesto do clique,
+      // senão o navegador bloqueia a aba. sendBeacon não é cancelado
+      // quando a página perde o foco.
+      var corpo = JSON.stringify(dados);
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(CONFIG.endpoint, new Blob([corpo], { type: 'application/json' }));
+          return;
+        }
+      } catch (e) { /* cai no fetch abaixo */ }
+      try {
+        fetch(CONFIG.endpoint, {
+          method: 'POST', keepalive: true,
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: corpo
+        }).catch(function () {});
+      } catch (e) { /* nada a fazer: o contato segue para o WhatsApp */ }
+    }
+
+    function envia(ev) {
+      ev.preventDefault();
+      var f = ev.target;
+      var nome = f.nome.value.trim();
+      var tel = f.telefone.value.trim();
+      var digitos = tel.replace(/\D/g, '');
+
+      if (nome.length < 2) return mostraErro('Escreva seu nome.');
+      if (digitos.length < 10) return mostraErro('Informe o telefone com DDD.');
+      if (!f.consentimento.checked) return mostraErro('\u00c9 preciso autorizar o contato posterior.');
+
+      grava({
+        nome: nome,
+        telefone: tel,
+        assunto: paginaDeOrigem(),
+        pagina: location.pathname,
+        url: location.href,
+        origem: 'captura_whatsapp',
+        enviadoEm: new Date().toISOString()
+      });
+      rastrear('contato_whatsapp', { origem: 'captura', pagina: paginaDeOrigem() });
+
+      var texto = 'Ol\u00e1! Sou ' + nome + '. Vim ' + origemPorExtenso() + ' do site de voc\u00eas.'
+                + '\n\nGostaria de falar com o escrit\u00f3rio sobre esse assunto.';
+      segue(linkWhatsapp(texto));
+      f.reset();
+    }
+
+    document.addEventListener('click', function (ev) {
+      var link = ev.target.closest && ev.target.closest('a[href*="wa.me/"]');
+      // A triagem monta o próprio resumo e já identifica quem é: não interceptar.
+      if (!link || link.id === 'triagem-wa' || link.hasAttribute('data-direto')) return;
+      ev.preventDefault();
+      abre(link.getAttribute('href'), link);
+    });
+  })();
 
   var flutuante = document.querySelector('.float-wa');
   if (flutuante) {

@@ -673,3 +673,60 @@ tbody th { font-weight: 600; color: var(--ink); width: 30%; }
   .section { padding: 0 !important; }
   .triagem__via { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* =========================================================
+   Captura antes do WhatsApp
+   Só aparece quando CONFIG.endpoint está preenchido; sem
+   destino para guardar, o botão leva direto como antes.
+   ========================================================= */
+.captura[hidden] { display: none; }
+.captura {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.25rem;
+  background: rgba(10, 18, 26, .62);
+}
+.captura__caixa {
+  background: var(--surface); border-radius: var(--radius);
+  box-shadow: 0 18px 50px rgba(15, 27, 38, .28);
+  width: 100%; max-width: 430px; padding: 2rem 1.9rem 1.7rem;
+  max-height: 92vh; overflow-y: auto;
+}
+.captura__rot {
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--bronze-dk); margin: 0 0 .5rem;
+}
+.captura__caixa h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
+.captura__sub { font-size: .93rem; color: var(--text-muted); margin: 0 0 1.4rem; }
+.captura__assunto {
+  font-size: .88rem; color: var(--graphite);
+  background: var(--sand); border-radius: var(--radius);
+  padding: .7rem .9rem; margin-bottom: 1.2rem;
+}
+.captura__assunto strong { color: var(--ink); }
+.captura .field { margin-bottom: 1rem; }
+.captura__consent {
+  display: flex; gap: .6rem; align-items: flex-start;
+  font-size: .82rem; color: var(--text-muted); margin: 1.1rem 0 1.3rem;
+}
+.captura__consent input { margin-top: .2rem; flex: 0 0 auto; }
+.captura__consent a { color: var(--bronze-dk); }
+.captura__acoes { display: flex; flex-direction: column; gap: .7rem; }
+.captura__acoes .btn { width: 100%; justify-content: center; }
+.captura__direto {
+  background: none; border: 0; cursor: pointer; padding: .3rem;
+  font-family: var(--sans); font-size: .84rem; color: var(--text-muted);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.captura__direto:hover { color: var(--ink); }
+.captura__fechar {
+  position: absolute; top: .6rem; right: .8rem;
+  background: none; border: 0; cursor: pointer;
+  font-size: 1.5rem; line-height: 1; color: var(--text-muted); padding: .3rem .5rem;
+}
+.captura__caixa { position: relative; }
+.captura__erro { color: #9a3a3a; font-size: .82rem; margin: .3rem 0 0; }
+@media (max-width: 560px) {
+  .captura { padding: .8rem; align-items: flex-end; }
+  .captura__caixa { padding: 1.6rem 1.3rem 1.3rem; }
+}
