@@ -25,6 +25,8 @@
   }
 
   function rastrear(nome, params) {
+    // main.js expõe srRastrear, que também dispara a conversão do Google Ads.
+    if (typeof window.srRastrear === 'function') return window.srRastrear(nome, params);
     if (typeof window.gtag === 'function') window.gtag('event', nome, params || {});
   }
 

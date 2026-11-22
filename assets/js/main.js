@@ -26,11 +26,13 @@
     analytics: 'G-1T85GQZYMC',
     // Google Ads: ID de conversão (AW-XXXXXXXXX) e rótulos de cada conversão.
     // Vazio = nada do Ads é carregado.
-    ads: 'AW-18517354407',
+    // Conta 105-664-3088. Uma única ação de conversão, "Contato pelo site
+    // (WhatsApp/telefone/e-mail)", contagem "Uma" — por isso o mesmo rótulo nos três.
+    ads: 'AW-737818455',
     adsConversoes: {
-      contato_whatsapp:  '',   // rótulo da conversão "contato por WhatsApp"
-      envio_formulario:  '',   // rótulo da conversão "formulário enviado"
-      contato_telefone:  ''    // rótulo da conversão "clique no telefone"
+      contato_whatsapp:  'PZeUCOKbw70dENfu6N8C',   // contato por WhatsApp
+      envio_formulario:  'PZeUCOKbw70dENfu6N8C',   // formulário enviado
+      contato_telefone:  'PZeUCOKbw70dENfu6N8C'    // clique no telefone
     }
   };
 
@@ -123,6 +125,8 @@
     var rotulo = CONFIG.ads && CONFIG.adsConversoes && CONFIG.adsConversoes[nome];
     if (rotulo) window.gtag('event', 'conversion', { send_to: CONFIG.ads + '/' + rotulo });
   }
+  // Exposto para a triagem (triagem.js) disparar a conversão do Ads também.
+  window.srRastrear = rastrear;
 
   function mostraAvisoDeCookies() {
     var aviso = document.createElement('div');

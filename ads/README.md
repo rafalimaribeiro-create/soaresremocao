@@ -58,7 +58,7 @@ A campanha pode estar perfeita e ainda assim o dinheiro ser perdido, porque hoje
 **não registra conversão no Ads e não captura nenhum contato**. Três bloqueios, em ordem:
 
 - [ ] **Rótulos de conversão vazios.** Em `assets/js/main.js`, `ads` já tem o ID
-      `AW-18517354407`, mas `adsConversoes` está com os três rótulos em branco. Sem eles
+      `AW-18517354407` (de outra conta) e `adsConversoes` com os três rótulos em branco — corrigido em 22/11/2026 para `AW-737818455` e rótulo `PZeUCOKbw70dENfu6N8C`. Sem eles
       o Ads recebe cliques e nenhuma conversão — não há como saber o que funcionou. Os
       rótulos nascem no passo 5 abaixo.
 - [ ] **Formulário sem destino.** `endpoint` está vazio, então o envio só abre o e-mail
