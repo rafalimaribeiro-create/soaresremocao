@@ -7,6 +7,7 @@ Arquivo lido e atualizado pela rotina semanal de publicação. Mantenha-o em dia
 
 | Data | Artigo | Arquivo |
 |---|---|---|
+| 2026-11-23 | Agravo interno no STJ e a Instrução Normativa 47/2026 | `agravo-interno-stj-instrucao-normativa-47-2026.html` |
 | 2026-11-18 | Sindicância e PAD: a diferença que define o alcance da punição | `sindicancia-e-pad-diferenca.html` |
 | 2026-11-17 | O que o STJ decidiu sobre remoção por motivo de saúde (REsp 2.151.392) | `stj-remocao-motivo-de-saude-resp-2151392.html` |
 | 2026-11-11 | Cerceamento de defesa em PAD: as falhas que comprometem o processo | `cerceamento-de-defesa-pad.html` |
