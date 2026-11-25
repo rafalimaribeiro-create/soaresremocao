@@ -15,12 +15,14 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+# Build e deploy ficam em jobs separados de propósito. Com os dois no mesmo
+# job, o deploy consulta o artefato logo após o upload e às vezes recebe
+# "Found 0 artifact(s)", embora o envio tenha sido finalizado com sucesso
+# (actions/deploy-pages#451). O job separado dá ao artefato o tempo de
+# propagação que a consulta precisa.
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -30,9 +32,16 @@ jobs:
           enablement: true
 
       # Site estático na raiz do repositório: publica tudo como está.
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: .
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
