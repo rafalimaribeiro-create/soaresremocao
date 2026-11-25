@@ -54,19 +54,37 @@ desde 2021, um Comitê Regulador do Marketing Jurídico no Conselho Federal (art
 
 ## Antes de gastar o primeiro real
 
-A campanha pode estar perfeita e ainda assim o dinheiro ser perdido, porque hoje o site
-**não registra conversão no Ads e não captura nenhum contato**. Três bloqueios, em ordem:
+A campanha pode estar perfeita e ainda assim o dinheiro ser perdido, se o site não
+registrar conversão nem capturar contato. Situação em 25/11/2026:
 
-- [ ] **Rótulos de conversão vazios.** Em `assets/js/main.js`, `ads` já tem o ID
-      `AW-18517354407` (de outra conta) e `adsConversoes` com os três rótulos em branco — corrigido em 22/11/2026 para `AW-737818455` e rótulo `PZeUCOKbw70dENfu6N8C`. Sem eles
-      o Ads recebe cliques e nenhuma conversão — não há como saber o que funcionou. Os
-      rótulos nascem no passo 5 abaixo.
-- [ ] **Formulário sem destino.** `endpoint` está vazio, então o envio só abre o e-mail
-      do visitante ou o WhatsApp. Quem desiste no meio não deixa rastro, e não existe
-      lista de contatos. Um serviço de formulário (Formspree, Basin) resolve em minutos.
-- [ ] **E-mail provisório.** O site ainda aponta para um endereço `@gmail.com`. Pagar
-      por clique para entregar o visitante a um Gmail é desperdício de credibilidade no
-      ponto exato em que ela é decidida.
+- [x] **Rótulos de conversão.** Resolvido em 22/11/2026. `assets/js/main.js` usa a conta
+      `AW-737818455` com o rótulo `PZeUCOKbw70dENfu6N8C` nas três ações. Sem isso o Ads
+      receberia cliques e nenhuma conversão.
+- [ ] **Formulário sem destino.** `endpoint` continua vazio, e é a única coisa que falta
+      para a medição ficar completa. Ele é a chave de duas funções ao mesmo tempo: o envio
+      do formulário por `fetch` e a **captura de nome e telefone antes do WhatsApp**, que
+      `capturaWhatsapp: true` já liga mas que fica desativada enquanto não houver onde
+      gravar. Hoje, portanto, quem desiste no meio não deixa rastro e não existe lista de
+      contatos.
+
+      *O caminho do código foi testado de ponta a ponta em 25/11/2026*, com um endpoint
+      local de mentira no lugar do serviço real. Os dois fluxos funcionaram, sem erro de
+      JavaScript, e o servidor recebeu:
+
+      ```json
+      {"nome":"...","email":"...","telefone":"...","assunto":"...","mensagem":"..."}
+      {"nome":"...","telefone":"...","assunto":"...","pagina":"/index.html",
+       "url":"...","origem":"captura_whatsapp","enviadoEm":"..."}
+      ```
+
+      O visitante viu "Mensagem recebida. O escritório retorna em até dois dias úteis."
+      Basta colar a URL do serviço em `endpoint` — não há mais nada a programar.
+
+- [ ] **E-mail no domínio.** `CONFIG.email` ainda é um endereço `@gmail.com`. Ele **não
+      aparece nas páginas**: serve ao botão "enviar por e-mail", que só é usado enquanto o
+      `endpoint` estiver vazio. Resolvido o item acima, deixa de ser o caminho principal,
+      mas continua valendo criar `contato@soareseribeiro.adv.br` — o MX entra no
+      Registro.br e o endereço volta aqui.
 
 ## A conta que decide tudo
 
