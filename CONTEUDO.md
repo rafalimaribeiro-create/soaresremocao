@@ -7,6 +7,7 @@ Arquivo lido e atualizado pela rotina semanal de publicação. Mantenha-o em dia
 
 | Data | Artigo | Arquivo |
 |---|---|---|
+| 2026-11-25 | Prescrição da ação disciplinar: quando o processo não pode mais punir | `prescricao-acao-disciplinar.html` |
 | 2026-11-23 | Agravo interno no STJ e a Instrução Normativa 47/2026 | `agravo-interno-stj-instrucao-normativa-47-2026.html` |
 | 2026-11-18 | Sindicância e PAD: a diferença que define o alcance da punição | `sindicancia-e-pad-diferenca.html` |
 | 2026-11-17 | O que o STJ decidiu sobre remoção por motivo de saúde (REsp 2.151.392) | `stj-remocao-motivo-de-saude-resp-2151392.html` |
@@ -24,16 +25,15 @@ Arquivo lido e atualizado pela rotina semanal de publicação. Mantenha-o em dia
 
 ## Fila (próximos temas, em ordem)
 
-1. Prescrição da ação disciplinar: quando o processo não pode mais punir
-2. Inventário extrajudicial quando há testamento: o que mudou e o que ainda exige juízo
-3. Exercício provisório e licença para acompanhar cônjuge: quando cabe cada um
-4. Herdeiro menor no inventário: por que a via judicial é obrigatória e como funciona
-5. Remoção por processo seletivo: como atacar critérios de edital
-6. Sobrepartilha: bens descobertos depois de encerrado o inventário
-7. Cessão de direitos hereditários: o que é, quando serve e os efeitos tributários
-8. Redistribuição, cessão e remoção: três institutos que não se confundem
-9. Inventário negativo: para que serve e quando é exigido
-10. Alvará judicial para levantamento de FGTS, PIS e pequenas quantias
+1. Inventário extrajudicial quando há testamento: o que mudou e o que ainda exige juízo
+2. Exercício provisório e licença para acompanhar cônjuge: quando cabe cada um
+3. Herdeiro menor no inventário: por que a via judicial é obrigatória e como funciona
+4. Remoção por processo seletivo: como atacar critérios de edital
+5. Sobrepartilha: bens descobertos depois de encerrado o inventário
+6. Cessão de direitos hereditários: o que é, quando serve e os efeitos tributários
+7. Redistribuição, cessão e remoção: três institutos que não se confundem
+8. Inventário negativo: para que serve e quando é exigido
+9. Alvará judicial para levantamento de FGTS, PIS e pequenas quantias
 
 ## Regras de redação
 
